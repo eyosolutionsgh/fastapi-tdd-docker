@@ -15,9 +15,9 @@ jobs:
         with:
           ref: master
       - name: Log in to GitHub Packages
-        run: echo ${FASTAPI_TDD_TOKEN} | docker login -u ${FASTAPI_USER} --password-stdin ghcr.io
+        run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin ghcr.io
         env:
-          FASTAPI_TDD_TOKEN: ${{ secrets.FASTAPI_TDD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.FASTAPI_TDD_TOKEN }}
       - name: Pull image
         run: |
           docker pull ${{ env.IMAGE }}:latest || true
@@ -42,9 +42,9 @@ jobs:
         with:
           ref: master
       - name: Log in to GitHub Packages
-        run: echo ${FASTAPI_TDD_TOKEN} | docker login -u ${FASTAPI_USER} --password-stdin ghcr.io
+        run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin ghcr.io
         env:
-          FASTAPI_TDD_TOKEN: ${{ secrets.FASTAPI_TDD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.FASTAPI_TDD_TOKEN }}
       - name: Pull image
         run: |
           docker pull ${{ env.IMAGE }}:latest || true
