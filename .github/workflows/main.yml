@@ -81,7 +81,7 @@ jobs:
     needs: [build, test]
     env:
       DO_APP_NAME: fastapi-tdd
-      DO_REGISTRY_IMAGE: registry.heroku.com/${DO_APP_NAME}/summarizer
+      DO_REGISTRY_IMAGE: registry.digitalocean.com/datrix-registry/${DO_APP_NAME}/summarizer
     steps:
       - name: Checkout
         uses: actions/checkout@v3
