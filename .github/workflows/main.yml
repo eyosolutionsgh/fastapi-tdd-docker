@@ -71,7 +71,9 @@ jobs:
           sleep 20 # Adjust the sleep time as needed
       - name: Install dependencies and run NLTK downloader
         run: |
-          docker exec -u 0 fastapi-tdd sudo python -m nltk.downloader -d /usr/local/lib/nltk_data punkt
+          docker exec fastapi-tdd mkdir -p /usr/local/lib/nltk_data
+          docker exec fastapi-tdd chmod -R 777 /usr/local/lib/nltk_data
+          docker exec fastapi-tdd python -m nltk.downloader -d /usr/local/lib/nltk_data punkt
       - name: Pytest
         run: docker exec fastapi-tdd python -m pytest .
       - name: Flake8
