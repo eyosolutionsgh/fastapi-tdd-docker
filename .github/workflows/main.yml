@@ -68,7 +68,7 @@ jobs:
             ${{ env.IMAGE }}:latest
 
       - name: Install dependencies
-        run: python -m nltk.downloader all
+        run: python -m nltk.downloader
 
       - name: Pytest
         run: docker exec fastapi-tdd python -m pytest .
