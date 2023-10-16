@@ -14,7 +14,6 @@ async def generate_summary(summary_id: int, url: str) -> str:
     article.parse()
 
     try:
-        nltk.download("punkt")
         nltk.data.find("tokenizers/punkt")
     except LookupError:
         nltk.download("punkt")
