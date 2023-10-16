@@ -68,8 +68,7 @@ jobs:
             ${{ env.IMAGE }}:latest
 
       - name: Install dependencies
-        run: python -m nltk.downloader
-
+        run: docker exec fastapi-tdd python -m nltk.downloader all
       - name: Pytest
         run: docker exec fastapi-tdd python -m pytest .
       - name: Flake8
