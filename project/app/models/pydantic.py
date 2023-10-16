@@ -1,8 +1,11 @@
-from pydantic import AnyHttpUrl, BaseModel
+from pydantic import AfterValidator, BaseModel, HttpUrl
+from typing_extensions import Annotated
+
+HttpUrlString = Annotated[HttpUrl, AfterValidator(lambda v: str(v))]
 
 
 class SummaryPayloadSchema(BaseModel):
-    url: AnyHttpUrl
+    url: HttpUrlString
 
 
 class SummaryResponseSchema(SummaryPayloadSchema):
