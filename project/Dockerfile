@@ -18,8 +18,6 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 COPY ./requirements-dev.txt .
 RUN pip install -r requirements-dev.txt
-RUN pip install black==23.9.1 flake8==6.1.0 isort==5.12.0 pytest==7.4.2
-
 
 # add app
 COPY . .
