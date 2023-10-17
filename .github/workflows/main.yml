@@ -72,7 +72,7 @@ jobs:
       - name: Install dependencies and run NLTK downloader
         run: |
           pip install nltk
-          python -m nltk.downloader -d /usr/share/nltk_data all
+          python -m nltk.downloader -d /home/app/nltk_data punkt
       - name: Pytest
         run: docker exec fastapi-tdd python -m pytest .
       - name: Flake8
