@@ -5,7 +5,7 @@ from newspaper import Article
 
 from app.models.tortoise import TextSummary
 
-nltk.download("punkt")
+# nltk.download("punkt")
 
 
 async def generate_summary(summary_id: int, url: str) -> str:
