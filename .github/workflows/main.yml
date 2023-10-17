@@ -71,6 +71,7 @@ jobs:
           sleep 20 # Adjust the sleep time as needed
       - name: Install dependencies and run NLTK downloader
         run: |
+          pip install nltk
           python -m nltk.downloader punkt
       - name: Pytest
         run: docker exec fastapi-tdd python -m pytest .
