@@ -30,6 +30,8 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 RUN pip install "uvicorn[standard]==0.23.2"
+RUN pip install nltk
+RUN python -m nltk.downloader -d /home/app/nltk_data punkt
 
 # add app
 COPY . .
