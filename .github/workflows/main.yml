@@ -85,7 +85,7 @@ jobs:
         run: docker exec fastapi-tdd pip install black==23.9.1 flake8==6.1.0 isort==5.12.0 pytest==7.4.2
       - name: Pytest
         run: |
-          docker exec fastapi-tdd python -m pytest . -p no:warnings
+          docker exec fastapi-tdd python -m pytest . -p no:warnings -o faulthandler_timeout=5
           if [ $? -ne 0 ]; then
               echo "Pytest failed!"
               exit 1
